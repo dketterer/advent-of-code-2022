@@ -4,11 +4,13 @@ import (
 	"fmt"
 
 	"github.com/dketterer/advent-of-code-2022/day1"
+	"github.com/dketterer/advent-of-code-2022/day2"
 )
 
 func main() {
 	days := []Day{
 		&day1.D{},
+		&day2.D{},
 	}
 	for _, d := range days {
 		fmt.Println(d.Name())
