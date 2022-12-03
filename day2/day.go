@@ -67,7 +67,6 @@ func (d *D) Part1() (_ int, err error) {
 	var totalScore int
 	for _, g := range d.games {
 		score := g.play()
-		g.print(score)
 		totalScore += score
 	}
 
@@ -109,7 +108,6 @@ func (d *D) Part2() (int, error) {
 		}
 		g.me = myChoice
 		score := g.play()
-		g.print(score)
 		totalScore += score
 	}
 
