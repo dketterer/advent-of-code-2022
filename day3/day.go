@@ -2,6 +2,7 @@ package day3
 
 import (
 	_ "embed"
+	"fmt"
 	"strings"
 	"unicode"
 )
@@ -35,7 +36,7 @@ func (d *D) Name() string {
 	return "--- Day 3: Rucksack Reorganization ---"
 }
 
-func (d *D) Part1() (_ int, err error) {
+func (d *D) Part1() (_ string, err error) {
 	lines := strings.Split(input, "\n")
 	d.r = make([]rucksack, len(lines))
 
@@ -66,10 +67,10 @@ func (d *D) Part1() (_ int, err error) {
 		}
 	}
 
-	return totalScore, err
+	return fmt.Sprintf("%d", totalScore), err
 }
 
-func (d *D) Part2() (int, error) {
+func (d *D) Part2() (string, error) {
 	var totalScore int
 	runesPerGroup := make(map[rune]int)
 	for i, rucks := range d.r {
@@ -90,5 +91,5 @@ func (d *D) Part2() (int, error) {
 		}
 	}
 
-	return totalScore, nil
+	return fmt.Sprintf("%d", totalScore), nil
 }

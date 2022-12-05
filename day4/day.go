@@ -2,6 +2,7 @@ package day4
 
 import (
 	_ "embed"
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -55,7 +56,7 @@ func (d *D) Name() string {
 	return "--- Day 4: Camp Cleanup ---"
 }
 
-func (d *D) Part1() (_ int, err error) {
+func (d *D) Part1() (_ string, err error) {
 	lines := strings.Split(input, "\n")
 	d.pairs = make([]*pair, len(lines))
 
@@ -72,10 +73,10 @@ func (d *D) Part1() (_ int, err error) {
 		}
 	}
 
-	return totalScore, err
+	return fmt.Sprintf("%d", totalScore), err
 }
 
-func (d *D) Part2() (int, error) {
+func (d *D) Part2() (string, error) {
 	var totalScore int
 
 	for _, p := range d.pairs {
@@ -86,5 +87,5 @@ func (d *D) Part2() (int, error) {
 		}
 	}
 
-	return totalScore, nil
+	return fmt.Sprintf("%d", totalScore), nil
 }

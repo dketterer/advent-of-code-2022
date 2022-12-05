@@ -44,14 +44,14 @@ func (d *D) Name() string {
 	return "--- Day 2: Rock Paper Scissors ---"
 }
 
-func (d *D) Part1() (_ int, err error) {
+func (d *D) Part1() (_ string, err error) {
 	lines := strings.Split(input, "\n")
 	d.games = make([]*game, len(lines))
 
 	for i, line := range lines {
 		inputs := strings.Split(line, " ")
 		if len(inputs) != 2 {
-			return 0, fmt.Errorf("got not exactly two inputs, but instead: %v\n", inputs)
+			return "", fmt.Errorf("got not exactly two inputs, but instead: %v\n", inputs)
 		}
 
 		me := int([]rune(inputs[1])[0])
@@ -70,10 +70,10 @@ func (d *D) Part1() (_ int, err error) {
 		totalScore += score
 	}
 
-	return totalScore, err
+	return fmt.Sprintf("%d", totalScore), err
 }
 
-func (d *D) Part2() (int, error) {
+func (d *D) Part2() (string, error) {
 	var totalScore int
 	for _, g := range d.games {
 		var myChoice int
@@ -111,5 +111,5 @@ func (d *D) Part2() (int, error) {
 		totalScore += score
 	}
 
-	return totalScore, nil
+	return fmt.Sprintf("%d", totalScore), nil
 }

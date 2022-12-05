@@ -2,6 +2,7 @@ package day1
 
 import (
 	_ "embed"
+	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -18,7 +19,7 @@ func (d *D) Name() string {
 	return "--- Day 1: Calorie Counting ---"
 }
 
-func (d *D) Part1() (_ int, err error) {
+func (d *D) Part1() (_ string, err error) {
 	lines := strings.Split(input, "\n")
 	d.calories = []int{0}
 
@@ -33,15 +34,15 @@ func (d *D) Part1() (_ int, err error) {
 
 	sort.Ints(d.calories)
 
-	return d.calories[len(d.calories)-1], err
+	return fmt.Sprintf("%d", d.calories[len(d.calories)-1]), err
 }
 
-func (d *D) Part2() (int, error) {
+func (d *D) Part2() (string, error) {
 	var result int
 
 	result += d.calories[len(d.calories)-1]
 	result += d.calories[len(d.calories)-2]
 	result += d.calories[len(d.calories)-3]
 
-	return result, nil
+	return fmt.Sprintf("%d", result), nil
 }

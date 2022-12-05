@@ -7,6 +7,7 @@ import (
 	"github.com/dketterer/advent-of-code-2022/day2"
 	"github.com/dketterer/advent-of-code-2022/day3"
 	"github.com/dketterer/advent-of-code-2022/day4"
+	"github.com/dketterer/advent-of-code-2022/day5"
 )
 
 func main() {
@@ -15,6 +16,7 @@ func main() {
 		&day2.D{},
 		&day3.D{},
 		&day4.D{},
+		&day5.D{},
 	}
 	for _, d := range days {
 		fmt.Println(d.Name())
@@ -22,11 +24,11 @@ func main() {
 		if err != nil {
 			fmt.Printf("Part 1: ERROR: %s\n", err.Error())
 		}
-		fmt.Printf("Part 1: %d\n", part1)
+		fmt.Printf("Part 1: %s\n", part1)
 		part2, err := d.Part2()
 		if err != nil {
 			fmt.Printf("Part 2: ERROR: %s\n", err.Error())
 		}
-		fmt.Printf("Part 2: %d\n", part2)
+		fmt.Printf("Part 2: %s\n", part2)
 	}
 }
