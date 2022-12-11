@@ -12,27 +12,27 @@ type Set[I comparable] interface {
 	Clear()
 }
 
-type set[I comparable] map[I]bool
+type S[I comparable] map[I]bool
 
 func New[I comparable]() Set[I] {
-	m := set[I]{}
+	m := S[I]{}
 	return &m
 }
 
-func (s *set[I]) IsEmpty() bool {
+func (s *S[I]) IsEmpty() bool {
 	return len(*s) == 0
 }
 
-func (s *set[I]) Len() int {
+func (s *S[I]) Len() int {
 	return len(*s)
 }
 
-func (s *set[I]) Push(i I) {
+func (s *S[I]) Push(i I) {
 	(*s)[i] = true
 }
 
-func (s *set[I]) Pop() (I, bool) {
-	for key, _ := range *s {
+func (s *S[I]) Pop() (I, bool) {
+	for key := range *s {
 		delete(*s, key)
 		return key, true
 	}
@@ -40,18 +40,18 @@ func (s *set[I]) Pop() (I, bool) {
 	return result, false
 }
 
-func (s *set[I]) Contains(i I) bool {
+func (s *S[I]) Contains(i I) bool {
 	return (*s)[i]
 }
 
-func (s *set[I]) Print() {
-	for i, _ := range *s {
+func (s *S[I]) Print() {
+	for i := range *s {
 		fmt.Printf("%s", i)
 	}
 	fmt.Println()
 }
 
-func (s *set[I]) Clear() {
+func (s *S[I]) Clear() {
 	for {
 		_, ok := s.Pop()
 		if !ok {
